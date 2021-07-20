@@ -78,3 +78,4 @@
 
 //DELETE
 //delete a book from publication
+//delete a publication 
