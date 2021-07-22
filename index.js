@@ -8,8 +8,8 @@ const mongoose = require("mongoose");
 const database = require("./database/index");
 
 // Models
-const BookModels = require("./database/book");
-const AuthorModels = require ("./database/author");
+const BookModel = require("./database/book");
+const AuthorModel = require ("./database/author");
 const PublicationModel = require("./database/publication");
 
 // Initializing express
@@ -36,9 +36,11 @@ Parameters            NONE
 Method                GET
 */
 
-shapeAI.get("/", (req, res) => {
+shapeAI.get("/", async (req, res) => {
     // Hello Change
-    return res.json({ books: database.books });
+    const getAllBooks = await BookModel.find();
+    console.log(getAllBooks);
+    return res.json(getAllBooks);
 });
 
 /*
@@ -49,12 +51,12 @@ Parameters            isbn
 Method                GET
 */
 
-shapeAI.get("/is/:isbn", (req, res) => {
-    const getSpecificBook = database.books.filter(
-        (book) => book.ISBN === req.params.isbn                     // ===  ->  Strictly equal to 
-    );
+shapeAI.get("/is/:isbn", async (req, res) => {
 
-    if(getSpecificBook.length === 0){
+    const getSpecificBook = await BookModel.findOne({ ISBN: req.params.isbn});
+
+
+    if(!getSpecificBook){
         return res.json({ 
             error: `No book found for the ISBN of ${req.params.isbn}`,
         });
@@ -72,11 +74,14 @@ Method                GET
 */
 
 shapeAI.get("/c/:category", (req, res) => {
-    const getSpecificBooks = database.books.filter((book) => 
-    book.category.includes(req.params.category)
-    );
+    
+    const getSpecificBooks = await BookModel.findOne({category: req.params.category});
+    
+    //const getSpecificBooks = database.books.filter((book) => 
+    // book.category.includes(req.params.category)
+    //);
 
-    if(getSpecificBooks.length === 0){
+    if(!getSpecificBooks){
         return res.json({ 
             error: `No book found for the category of ${req.params.category}`,
         });
