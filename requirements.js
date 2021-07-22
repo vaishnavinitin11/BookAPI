@@ -79,3 +79,12 @@
 //DELETE
 //delete a book from publication
 //delete a publication 
+
+
+
+
+// Mongo is schemaless
+
+// Mongoose helps you with validation, relationship with other data -> only for mongoDB
+
+//model = document model for mongodb
