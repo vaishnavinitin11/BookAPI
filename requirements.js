@@ -53,10 +53,10 @@
 //New author
 
 //PUT
-//Author details
+//Update Author name using id   [task]
 
 //DELETE
-//delete an author
+//delete an author              [task]
 
 // -----------------------------------------------------------------------------------------
 
@@ -66,14 +66,14 @@
 
 //GET
 //to get all publications
-//to get specific publication
-//to get a list of publications based on a book
+//to get specific publication                       [task]
+//to get a list of publications based on a book     [task]
 
 //POST
 //Add new publication
 
 //PUT
-//update publication details
+//update publication name using id                  [task]
 //update/add new book to an publication
 
 //DELETE
