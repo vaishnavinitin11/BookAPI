@@ -43,7 +43,7 @@ const publications = [
     {
         id: 2,
         name: "Vickie Publications",
-        books: [],
+        books: ["12345Two"],
     },
 ];
 

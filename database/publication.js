@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 // Creating a Publication Schema
 const PublicationSchema = mongoose.Schema({
-    id: Number,
+    id: [Number],
     name: String,
     books: [String],
 })
